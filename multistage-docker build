@@ -1,0 +1,11 @@
+#Stage 1: Build the JAR file
+FROM maven:3.8.6 AS builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+#Stage 2: Run the application with a smaller JDK
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=builder /app/target/myapp.jar app.jar
+CMD ["java", "-jar", "app.jar"]
