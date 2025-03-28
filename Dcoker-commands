@@ -1,0 +1,19 @@
+docker --version
+docker pull ubuntu
+docker images
+docker ps -a
+docker exec -it my_container bash
+docker stop my_container
+docker start my_container
+docker restart my_container
+docker rm my_container
+docker rmi ubuntu
+docker network create my_network
+docker network ls
+docker volume create my_volume
+docker run -d -v my_volume:/data ubuntu
+docker volume ls
+docker build -t my_image .
+docker tag my_image myrepo/my_image:v1
+docker push myrepo/my_image:v1
+docker system prune --all
