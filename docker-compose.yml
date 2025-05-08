@@ -1,8 +1,8 @@
 services:
-  tomcat:latest
+  tomcat:
     ports:
       - 8081:8080
-    image: tomcat
+    image: tomcat:latest
     container_name: jenkins_container
     restart: always
   jenkins:
@@ -13,7 +13,7 @@ services:
       - my_jenkins:/var/jenkins_home
     image: jenkins/jenkins:latest
     restart: always
-    name: Jenkins_compose
+    container_name: Jenkins_compose
  volumes:
    my_jenkins:
 
